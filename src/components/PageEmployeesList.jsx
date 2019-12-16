@@ -31,6 +31,7 @@ class PageEmployeesList extends React.Component {
 
   render() {
     const { isLoading } = this.state;
+    // const isLoading = this.state.isLoading;
     const { employees } = this.props;
 
     if(isLoading) {
@@ -40,7 +41,7 @@ class PageEmployeesList extends React.Component {
     return (
       <div>
         <h1>Employees List:</h1>
-        {employees && employees.map((employee => <EmployeeLine key={employee._id} employee={employee} />))}
+        {employees && employees.map((employee => <EmployeeLine key={employee.id} employee={employee} />))}
         <Link to="/new">
           <button>Create employee</button>
         </Link>
