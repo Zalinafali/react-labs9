@@ -12,21 +12,24 @@ class PageEmployeesList extends React.Component {
     super(props);
 
     this.state = { 
-      isLoading: false,
+      isLoading: false
     }
   }
 
   componentDidMount() {
-    this.setState({ isLoading: true });
-    fetch('http://localhost:3004/employees')
-    .then((data) => data.json())
-    // Without Redux
-    // .then((employees) => this.setState({ employees, isLoading: false }));
-    // With Redux
-    .then((employees) => {
-      this.props.employeesLoaded(employees);
-      this.setState({ isLoading: false });
-    });
+    if(!this.props.employees){
+      this.setState({ isLoading: true });
+      fetch('http://localhost:3004/employees')
+      .then((data) => data.json())
+      // Without Redux
+      // .then((employees) => this.setState({ employees, isLoading: false }));
+      // With Redux
+      .then((employees) => {
+        this.props.employeesLoaded(employees);
+        this.setState({ isLoading: false });
+      });
+      
+    }
   }
 
   render() {
