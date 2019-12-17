@@ -1,4 +1,5 @@
 import { EMPLOYEES_LOADED } from './constants';
+import { ADD_EMPLOYEE } from './constants';
 
 export const employeesLoaded = (employees) => {
   return {

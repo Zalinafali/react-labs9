@@ -17,7 +17,7 @@ const appReducer = (state = initialState, action) => {
     case ADD_EMPLOYEE: {
       return {
         ...state,
-        employees: [...state.employees, action.payload]
+        employees: [...state.employees, action.payload.newEmployee]
       }
     }
     default:

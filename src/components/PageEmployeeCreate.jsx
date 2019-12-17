@@ -70,6 +70,9 @@ class PageEmployeeCreate extends React.Component {
       if(res.status !== 201) {
         this.setState({ isSaving: false, error: `Saving returned status ${res.status}`})
       } else {
+        // that's how i understand task 3, after receiving 201 we know that
+        // new employee has been saved by the backend so we cant add him to the store
+        this.props.addEmployee(employee);
         this.props.history.push("/");
       }
     })  
