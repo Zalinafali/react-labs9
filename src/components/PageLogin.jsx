@@ -27,10 +27,8 @@ class PageLogin extends React.Component {
       }
 
       componentDidUpdate() {
-        if (this.props.user === null) {
+        if (this.props.user === null)
           return;
-        }
-
         this.props.history.push("/list");
       }
 

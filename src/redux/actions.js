@@ -83,15 +83,14 @@ export const login = (user) => {
         if(res !== undefined){
           console.log("User found!");
           dispatch(userFound(res));
-          this.props.history.push("/");
         }
         else{
           console.log("User not found!");
-          //throw("User not found!");
+          throw("User not found!");
         }
       })
       .catch((err) => {
-        //dispatch(dataFetchedError(err.message))
+        dispatch(dataFetchedError(err.message))
       });
   };
 }
