@@ -1,4 +1,4 @@
-import { EMPLOYEES_LOADED, FETCHING_STARTED, FETCHED_PROPERLY, FETCHED_ERROR } from './constants';
+import { EMPLOYEES_LOADED, FETCHING_STARTED, FETCHED_PROPERLY, FETCHED_ERROR, LOGIN_OK } from './constants';
 import { ADD_EMPLOYEE } from './constants';
 
 export const initialState = {
@@ -39,6 +39,12 @@ const appReducer = (state = initialState, action) => {
         ...state,
         error: action.payload.error,
         isFetching: false
+      }
+    }
+    case LOGIN_OK: {
+      return {
+        ...state,
+        user: action.payload.user
       }
     }
     default:

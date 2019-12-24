@@ -18,13 +18,9 @@ import PageLogin from './PageLogin';
 const initialState={
   isFetching: false,
   error: null,
-  employees: []
+  employees: [],
+  user: null
 }
-
-const composedEnhancers = compose(
-  composeWithDevTools(),
-  applyMiddleware(thunk)
-)
 
 const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(thunk)))
 

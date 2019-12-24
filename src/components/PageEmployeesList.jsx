@@ -47,6 +47,7 @@ class PageEmployeesList extends React.Component {
     
     return (
       <div>
+        <div align="right">{(this.props.user === null) ? "" : this.props.user.fullName}</div>
         <h1>Employees List:</h1>
         {employees && employees.map((employee => <EmployeeLine key={employee.id} employee={employee} />))}
         <Link to="/new">
@@ -59,7 +60,8 @@ class PageEmployeesList extends React.Component {
 
 const mapStateToProps = (state /*, ownProps*/) => {
   return {
-    employees: state.employees
+    employees: state.employees,
+    user: state.user
   }
 }
 
