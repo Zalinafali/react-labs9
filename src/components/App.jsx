@@ -16,7 +16,8 @@ import PageEmployeeCreate from './PageEmployeeCreate';
 
 const initialState={
   isFetching: false,
-  error: []
+  error: null,
+  employees: []
 }
 
 const composedEnhancers = compose(
