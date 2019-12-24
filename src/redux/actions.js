@@ -28,11 +28,11 @@ export const launchDataFetching = () => {
   };
 }
 
-export const dataFetchedProperly = (data) => {
+export const dataFetchedProperly = (employees) => {
   return {
     type: FETCHED_PROPERLY,
     payload: {
-      ...data
+      employees
     }
   };
 }
@@ -47,13 +47,14 @@ export const dataFetchedError = (error) => {
 }
 
 export const fetchEmployees = () => {
-  return dispatch => {
+  return (dispatch) => {
     dispatch(launchDataFetching());
-
+    console.log("FETCHING");
     fetch('http://localhost:3004/employees')
       .then((data) => data.json())
-      .then((res) => {
-        dispatch(dataFetchedProperly(res.data))
+      .then((employees) => {
+        //throw("ERRORRRR");
+        dispatch(employeesLoaded(employees))
       })
       .catch((err) => {
         dispatch(dataFetchedError(err.message))

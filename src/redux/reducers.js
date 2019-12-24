@@ -29,14 +29,12 @@ const appReducer = (state = initialState, action) => {
     case FETCHED_PROPERLY: {
       const { employees } = action.payload;
       const {isFetching} = false;
-      const {error} = null;
+      const {error} = [];
       return Object.assign({}, state, { employees }, {isFetching}, {error});
     }
     case FETCHED_ERROR: {
-      return {
-        ...state,
-        error: action.payload.error
-      }
+      const error = action.payload.error;
+      return Object.assign({}, state, { error });
     }
     default:
         return state

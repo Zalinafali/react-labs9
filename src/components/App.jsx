@@ -16,7 +16,7 @@ import PageEmployeeCreate from './PageEmployeeCreate';
 
 const initialState={
   isFetching: false,
-  error: null
+  error: []
 }
 
 const composedEnhancers = compose(
@@ -24,7 +24,7 @@ const composedEnhancers = compose(
   applyMiddleware(thunk)
 )
 
-const store = createStore(rootReducer, initialState, composedEnhancers)
+const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(thunk)))
 
 const App = () => (
   <Provider store={store}>
