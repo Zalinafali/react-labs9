@@ -13,6 +13,7 @@ import thunk from 'redux-thunk';
 
 import PageEmployeesList from './PageEmployeesList';
 import PageEmployeeCreate from './PageEmployeeCreate';
+import PageLogin from './PageLogin';
 
 const initialState={
   isFetching: false,
@@ -32,6 +33,9 @@ const App = () => (
     <Router>
       <Switch>
         <Route exact path="/">
+          <PageLogin></PageLogin>
+        </Route>
+        <Route exact path="/list">
           <PageEmployeesList></PageEmployeesList>
         </Route>
         <Route exact path="/new">
